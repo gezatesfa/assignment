@@ -1,3 +1,4 @@
+import 'package:assignment/navbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: '{ }     List of Items'),
+      home: MyHomePage(
+        title: '   List of Items',
+      ),
     );
   }
 }
@@ -37,7 +40,12 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Row(
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.data_object)),
+            Text(title),
+          ],
+        ),
         actions: [
           IconButton(
             icon: Icon(
@@ -73,6 +81,7 @@ class MyHomePage extends StatelessWidget {
           );
         },
       ),
+      drawer: Navbar(),
     );
   }
 }
